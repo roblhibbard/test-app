@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+
+<html>
+<html lang="en-US">
+<body>
+
+
+<h1>Create an article</h1>
+
+<% if @article.errors.any? %>
+<h2>"The following errors prevented the article from getting created"</h2>
+<ul>
+	<% @article.errors.full_messages.each do |msg| %>
+	<li><%= msg %></li>
+<% end %>
+</ul>
+<% end %>
+ <%= form_for @article do |r| %>
+ <p>
+ 	<%= r.label :title %><br/>
+ 	<%= r.text_field :title %>
+ </p>
+ <p>
+ 	<%= r.label :description %><br/>
+ 	<%= r.text_area :description %>
+ 		
+ </p>
+ <p>
+ 	<%= r.submit :Submit %>
+ 	
+ </p>
+ 
+<% end %>
+
+<%= link_to "Back to Articles listing", articles_path %>
+
+</body>
+</html>
