@@ -1,0 +1,9 @@
+.header {
+  background-color: #4fe362;
+}
+.jumbotron {
+	color: #000000
+	padding-top: 20px;
+	position: absolute;
+	background-size: contain;
+}
