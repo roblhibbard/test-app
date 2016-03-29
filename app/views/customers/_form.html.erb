@@ -1,0 +1,43 @@
+<div class="well"> 
+	 
+	 	<%= bootstrap_form_for(@customer, layout: :horizontal, label_col: "col-sm-offset-1") do |f| %>
+	<div class="col-sm-4">
+	 	<%= f.text_field :first_name %>
+	</div>
+	<div class="col-sm-4">
+	 	<%= f.text_field :last_name %>
+	 </div>
+	 
+	<div class="col-sm-4">
+	  <%= f.text_field :business_name %>
+	</div>
+	<div class="col-sm-4">
+	  <%= f.phone_field :phone_number %>
+	</div>
+ 	<div class="col-sm-4">
+	  	<%= f.phone_field :mobile_number %> 
+	</div>
+	<div class="col-sm-4">
+	  <%= f.text_field :email %> 
+	</div>
+	<div class="col-sm-4">
+	  <%= f.text_field :address %> 
+	</div>
+	<div class="col-sm-3">
+	  <%= f.text_field :city %> 
+	</div>
+	<div class="col-sm-2">
+	  <%= f.text_field :state %> 
+	</div>
+	<div class="col-sm-2">
+	  <%= f.text_field :zip_code %> 
+	</div>
+	 	
+	  <%= f.form_group do %>
+		   <%= f.submit %>
+	 <% end %> 
+	 
+	<% end %>
+</div>
+
+

@@ -12,6 +12,9 @@ gem 'sqlite3'
 gem 'bcrypt', '~> 3.1.7'
 # Use SCSS for stylesheets
 gem 'bootstrap-sass', '~> 3.3.6'
+# Use bootstrap_forms
+gem 'bootstrap_form'
+#use sass-rails
 gem 'sass-rails', '~> 5.0'
 # Use Uglifier as compressor for JavaScript assets
 gem 'uglifier', '>= 1.3.0'
