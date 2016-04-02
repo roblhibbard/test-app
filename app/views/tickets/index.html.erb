@@ -1,0 +1,17 @@
+<h2>Tickets</h2>
+<%= link_to "New Ticket", new_customer_ticket_path(@customer)  %>
+<table id='tickets'>
+  <tr>
+    <th>Check-in Date</th>
+    <th>State</th>
+    <th>Service</th>
+  </tr>
+  <% @customer.tickets.each do |ticket| %>
+    <tr class='ticket'>
+      <td class='date'><%= ticket.created_at.strftime("%d/%m/%y") %></td>
+      <td class='state'><%= ticket.state %></td>
+      <td class='service'><%= ticket.service %></td>
+      <td class='actions'><%= link_to "View",  [@customer, ticket] %></td>
+    </tr>
+  <% end %>
+</table>

@@ -1,0 +1,25 @@
+<%= form_for [@customer, @ticket] do |f| %>
+  <% if @ticket.errors.any? %>
+    <% @ticket.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+  <% end %>
+
+  <p>
+    <%= f.label :service, "Service" %>
+    <%= f.text_field :service %>
+  </p>
+  <p>
+    <%= f.label :description, "Description" %>
+    <%= f.text_area :description %>
+  </p>
+  <p>
+    <%= f.label :state_id, "State" %>
+    <%= f.collection_select( :state_id, State.all, :id, :name ) %>
+  </p>
+
+  <h3>Items</h3>
+  <%= render "items/form", f: f %>
+
+  <%= f.submit %>
+<% end %>

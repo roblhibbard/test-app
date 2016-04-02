@@ -1,0 +1,29 @@
+<div id='ticket'>
+  <h2><%= @ticket.service %></h2>
+  <%= render @ticket.state if @ticket.state %>
+
+  <div id='description'>
+    <%= simple_format(@ticket.description) %>
+  </div>
+
+  <h3>Items</h3>
+  <table id='items'>
+    <tr>
+      <th>Make</th>
+      <th>Model</th>
+      <th>Serial Number</th>
+    <tr id='item'>
+      <% @ticket.items.each do |item| %>
+        <td class='make'><%= item.make %></td>
+        <td class='model'><%= item.model %></td>
+        <td class='serial_number'><%= item.serial_number %></td>
+      <% end %>
+    </tr>
+  </table>
+
+  <br />
+
+  <%= link_to "Edit", [:edit, @customer, @ticket] %>
+  <%= link_to "Delete", [@customer, @ticket], method: :delete,  
+    data: { confirm: "Are you sure you want to delete this ticket?"} %>
+</div>

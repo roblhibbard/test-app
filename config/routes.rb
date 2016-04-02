@@ -8,8 +8,12 @@ Rails.application.routes.draw do
   get "articles/edit"
   
   resources :articles
-  resources :customers
-  
+    
+  resources :customers do
+    resources :tickets do
+      resources :items
+    end
+  end
   get 'signup', to: 'users#new'
   resources :users, except: [:new]
   

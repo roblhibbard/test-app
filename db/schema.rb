@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160329032648) do
+ActiveRecord::Schema.define(version: 20160401050130) do
 
   create_table "articles", force: :cascade do |t|
     t.string   "title"
@@ -33,6 +33,49 @@ ActiveRecord::Schema.define(version: 20160329032648) do
     t.integer "zip_code"
     t.integer "email"
   end
+
+  create_table "priority_lists", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "roles", force: :cascade do |t|
+    t.string   "name"
+    t.boolean  "enabled"
+    t.integer  "list_position"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.string   "subject",                          null: false
+    t.text     "description",                      null: false
+    t.string   "ticket_priority"
+    t.boolean  "closed"
+    t.string   "closed_by"
+    t.datetime "closed_date"
+    t.text     "resolution"
+    t.integer  "user_id",                          null: false
+    t.integer  "assigned_to_id"
+    t.text     "assigned_to_username"
+    t.integer  "priority_list_id"
+    t.integer  "status_id",            default: 1, null: false
+    t.string   "created_by"
+    t.string   "edited_by"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "service"
+    t.integer  "customer_id"
+  end
+
+  add_index "tickets", ["customer_id"], name: "index_tickets_on_customer_id"
 
   create_table "users", force: :cascade do |t|
     t.string   "username"
